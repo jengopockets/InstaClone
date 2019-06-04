@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import PropTypes from './node_modules/prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
 
@@ -40,7 +40,7 @@ class CommentSection extends React.Component {
 
   handleCommentSubmit = e => {
     e.preventDefault();
-    const newComment = { text: this.state.comment, username: 'ryanhamblin' };
+    const newComment = { text: this.state.comment, username: 'JengoPockets' };
     const comments = this.state.comments.slice();
     comments.push(newComment);
     this.setState({ comments, comment: '' });

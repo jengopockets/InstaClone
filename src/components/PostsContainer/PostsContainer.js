@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import Post from './Post';
 import './Posts.css';
 
