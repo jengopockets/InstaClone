@@ -1,5 +1,6 @@
     
 import React from 'react';
+import Like from '../../assets/heart.svg'
 
 const LikeSection = props => {
   return [
@@ -9,10 +10,7 @@ const LikeSection = props => {
       onClick={props.incrementLike}
     >
       <div className="like-section-wrapper">
-        <i className="far fa-heart" />
-      </div>
-      <div className="like-section-wrapper">
-        <i className="far fa-comment" />
+        <img alt="heart" src={Like} className="heart" />
       </div>
     </div>,
     <div className="like-section" key="likes-container">
