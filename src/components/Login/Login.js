@@ -30,10 +30,10 @@ class Login extends Component {
                 <h2>InstaClone</h2>
                 <div>Login</div>
                 <div className="login-user">
-                    <input type="user" placeholder="UserName" value={this.state.username} onChange={this.handleInput} />
+                    <input type="user" name="username" placeholder="UserName" value={this.state.username} onChange={this.handleInput} />
                 </div>
                 <div className="login-password">
-                    <input type="pass" placeholder="What is Thine Password?" value={this.state.password} onChange={this.handleInput} />
+                    <input type="pass" placeholder="What is Thine Password?" name="password" value={this.state.password} onChange={this.handleInput} />
                 
                     <br />
                     <button onClick={this.handleLogin}>

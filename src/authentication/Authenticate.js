@@ -2,11 +2,31 @@ import React, { Component } from 'react';
 import PostsPage from "../components/PostsContainer/PostsPage"
 import Login from "../components/Login/Login";
 
-const withAuthenticate = (app) =>
-    class extends React.Component {
-        render() {
-            return <app />;
+const withAuthenticate = FirstComponent => SecondComponent =>
+    class extends Component {
+        state = {
+            loggedIn: false
+        };
+
+        componentDidMount() {
+            if (localStorage.getItem('user')) {
+                this.setState({
+                    loggedIn: true
+                });
+            }
         }
+        render() {
+            return (
+                <>
+                {this.state.loggedIn ? (
+                    <FirstComponent />
+                ) : (
+                    <SecondComponent />
+                )}
+            </>
+            );
+        }
+
     };
     
 

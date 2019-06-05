@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostsPage from './components/PostsContainer/PostsPage';
 import withAuthenticate from './authentication/Authenticate';
+import Login from './components/Login/Login';
 import './App.css';
 
-const ComponentFromWithAuthenticate = () => <div>< PostsPage/></div>;
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
-class App extends Component {
-  render() {
-    return (
-      <ComponentFromWithAuthenticate />
-    ); 
-  }
-}
+const App = () => <ComponentFromWithAuthenticate />;
 
 
 export default App;
