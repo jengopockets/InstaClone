@@ -4,18 +4,33 @@ import CommentSection from '../CommentSection/CommentSectionContainer';
 import LikeSection from './LikeSection';
 import PostHeader from './PostHeader';
 import './Posts.css';
+import { truncate } from 'fs';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: props.post.likes
+      likes: props.post.likes,
+      updated:false
     };
   }
-  incrementLike = () => {
-    let likes = this.state.likes + 1;
-    this.setState({ likes });
-  };
+  updateLikes= () => {
+    if(!this.state.updated) {
+      this.setState((prevState, props) =>{
+        return {
+          likes: prevState.likes + 1,
+          updated: true
+        };
+      });
+    } else {
+      this.setState((prevState, props) => {
+        return {
+          likes: prevState.likes - 1,
+          updated: false
+        };
+      });
+    }
+  }
   render() {
     return (
       <div className="post-border">
@@ -31,7 +46,7 @@ class Post extends React.Component {
           />
         </div>
         <LikeSection
-          incrementLike={this.incrementLike}
+          updateLikes={this.updateLikes}
           likes={this.state.likes}
         />
         <CommentSection
